@@ -35,8 +35,6 @@ namespace EastyForms
             _screenItems.Add(new Doggo(new Size(64, 64), new Point(200, 264), this.panel1));
             _screenItems.Add(new Doggo(new Size(64, 64), new Point(264, 200), this.panel1));
             _screenItems.Add(new Doggo(new Size(64, 64), new Point(264, 264), this.panel1));
-
-            //Task.Run(() => StartLoop() );
         }
 
         //Calls the Tick() method on all of the implementations of IScreenItem
