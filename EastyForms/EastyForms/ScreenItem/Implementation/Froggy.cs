@@ -40,28 +40,37 @@ namespace EastyForms.ScreenItem.Implementation
                 if(_box.Location.X < 0)
                 {
                     _heading = Heading.RIGHT;
-                    _box.Location = new Point(_box.Location.X + _step, _box.Location.Y);
                 }
-                else
-                {
-                    _box.Location = new Point(_box.Location.X - _step, _box.Location.Y);
-                }
+                Move(panel, _heading, _step);
             }
             else
             {
                 if (_box.Location.X + _box.Size.Width > panel.Width)
                 {
                     _heading = Heading.LEFT;
-                    _box.Location = new Point(_box.Location.X - _step, _box.Location.Y);
                 }
-                else
-                {
-                    _box.Location = new Point(_box.Location.X + _step, _box.Location.Y);
-                }
+                Move(panel, _heading, _step);
             }
+        }
 
-            //panel.Controls.Add(box);
-            Console.WriteLine("Froggy does tick!");
+        private void Move(Panel panel, Heading direction, int step)
+        {
+            if (direction == Heading.UP)
+            {
+                _box.Location = new Point(_box.Location.X, _box.Location.Y - step);
+            }
+            else if (direction == Heading.DOWN)
+            {
+                _box.Location = new Point(_box.Location.X, _box.Location.Y + step);
+            }
+            else if (direction == Heading.LEFT)
+            {
+                _box.Location = new Point(_box.Location.X - step, _box.Location.Y);
+            }
+            else
+            {
+                _box.Location = new Point(_box.Location.X + step, _box.Location.Y);
+            }
         }
     }
 }
